@@ -11,6 +11,10 @@ module Bookshelf
           .to_a
       end
 
+      def create(attributes)
+        books.changeset(:create, attributes).commit
+      end
+
       def find(id)
         books.by_pk(id).one!
       end
