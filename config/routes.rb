@@ -5,5 +5,6 @@ module Bookshelf
     # Add your routes here. See https://guides.hanamirb.org/routing/overview/ for details.
     root to: "home.index"
     get "/books", to: "books.index"
+    get "/books/:id", to: "books.show"
   end
 end
