@@ -1,0 +1,7 @@
+<% books.each do |book| %>
+  {
+    id: <%= book[:id] %>,
+    title: "<%= book[:title] %>",
+    author: "<%= book[:author] %>"
+  }<%= "," unless book == books.last %>
+<% end %>

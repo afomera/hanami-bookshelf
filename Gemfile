@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 gem "hanami", "~> 2.2"
 gem "hanami-assets", "~> 2.2"
-gem "hanami-controller", "~> 2.2"
+gem "hanami-controller", "~> 2.2", path: "../hanami-controller"
 gem "hanami-db", "~> 2.2"
 gem "hanami-router", "~> 2.2"
 gem "hanami-validations", "~> 2.2"
