@@ -4,12 +4,10 @@ module Bookshelf
   module Views
     module Books
       class Index < Bookshelf::View
+        include Deps["repos.book_repo"]
+
         expose :books do
-          [
-            { title: "Practical Object-Oriented Design in Ruby" },
-            { title: "Eloquent Ruby" },
-            { title: "The Well-Grounded Rubyist" }
-          ]
+          book_repo.all_by_title
         end
       end
     end
