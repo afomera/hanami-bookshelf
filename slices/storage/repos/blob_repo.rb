@@ -46,7 +46,7 @@ module Storage
 
         # Delete the physical file
         storage_service.delete(blob[:key])
-        
+
         # Delete the database record
         storage_blobs.by_pk(id).delete
       end

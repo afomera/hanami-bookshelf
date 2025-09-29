@@ -1,7 +1,9 @@
 <h1>Books</h1>
 
 <ul>
-  <%= storage_blobs.inspect %>
+  <% storage_blobs.each do |storage_blob| %>
+    <li><%= storage_blob[:filename] %> - <img src="<%= Storage::Slice["repos.blob_repo"].url_for(storage_blob) %>" width="200" height="200"></li>
+  <% end %>
   <%= storage_attachments.inspect %>
 
   <% books.each do |book| %>
