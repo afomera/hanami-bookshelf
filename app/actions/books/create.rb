@@ -21,10 +21,7 @@ module Bookshelf
 
             if request.params[:book][:cover_image]
               # Save the uploaded file as a blob
-              blob = storage_blobs.create(
-                filename: request.params[:book][:cover_image][:filename],
-                content_type: request.params[:book][:cover_image][:type],
-              )
+              blob = storage_blobs.create(request.params[:book][:cover_image])
 
               storage_attachments.create(
                 name: "cover_image",
