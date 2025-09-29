@@ -12,6 +12,7 @@ module Bookshelf
     post "/books", to: "books.create", as: :create_book
 
     slice :storage, at: "/storage" do
+      get "/:key", to: "serve", as: :serve_file
     end
   end
 end

@@ -19,6 +19,30 @@ module Storage
           )
           .commit
       end
+
+      def find_attachment(attachable_type:, attachable_id:, name:)
+        storage_attachments
+          .where(
+            attachable_type: attachable_type,
+            attachable_id: attachable_id,
+            name: name
+          )
+          .one
+      end
+
+      def find_attachments(attachable_type:, attachable_id:, name:)
+        storage_attachments
+          .where(
+            attachable_type: attachable_type,
+            attachable_id: attachable_id,
+            name: name
+          )
+          .to_a
+      end
+
+      def delete_attachment(id)
+        storage_attachments.by_pk(id).delete
+      end
     end
   end
 end
