@@ -7,10 +7,6 @@ module Bookshelf
         format :json, :html, :xml
 
         def handle(request, response)
-          puts "******" * 20
-          puts "Response FORMAT: #{response.format}"
-          puts "request.accept # => #{request.accept}"
-          puts "******" * 20
           if response.format == :xml
             response.body = "<books></books>"
             return
