@@ -7,14 +7,15 @@ module Storage
         storage_blobs.to_a
       end
 
-      def create(filename:, content_type:, data:)
+      def create(filename:, content_type:)
         storage_blobs
           .changeset(
             :create,
-            key: SecureRandom.uuid,
             filename:,
             content_type:,
-            created_at: Time.now
+            key: SecureRandom.uuid,
+            created_at: Time.now,
+            metadata: {}
           )
           .commit
       end

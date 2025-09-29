@@ -4,8 +4,8 @@ require "hanami"
 
 module Bookshelf
   class App < Hanami::App
-    config.actions.format :html, :json
-    # config.middleware.use :body_parser, :json
+    # config.actions.format :json, :html
+    config.middleware.use :body_parser, :form
 
     config.actions.sessions = :cookie, {
       key: "bookshelf.session",

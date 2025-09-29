@@ -6,9 +6,6 @@ module Bookshelf
       class Create < Bookshelf::Action
         include Deps["repos.book_repo"]
         include Storage::Deps[storage_blobs: "repos.blob_repo", storage_attachments: "repos.attachment_repo"]
-        
-        config.formats.add :multipart, "multipart/form-data"
-        config.format :multipart
 
         params do
           required(:book).hash do
@@ -23,7 +20,6 @@ module Bookshelf
             book = book_repo.create(request.params[:book])
 
             if request.params[:book][:cover_image]
-              binding.irb
               # Save the uploaded file as a blob
               blob = storage_blobs.create(
                 filename: request.params[:book][:cover_image][:filename],
