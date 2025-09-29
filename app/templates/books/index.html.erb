@@ -1,6 +1,9 @@
 <h1>Books</h1>
 
 <ul>
+  <%= storage_blobs.inspect %>
+  <%= storage_attachments.inspect %>
+
   <% books.each do |book| %>
     <li><%= book[:title] %>, <%= book[:author] %></li>
   <% end %>

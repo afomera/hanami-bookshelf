@@ -1,6 +1,6 @@
 <h1>New Book</h1>
 
-<%= form_for :book, routes.path(:create_book) do |f| %>
+<%= form_for :book, routes.path(:create_book), enctype: "multipart/form-data" do |f| %>
   <div>
       <%= f.label  "Title", for: :title %>
       <%= f.text_field :title %>
@@ -9,6 +9,12 @@
   <div>
       <%= f.label  "Author", for: :author %>
       <%= f.text_field :author %>
+  </div>
+
+  <div>
+      <%= f.label  "Cover", for: :cover_image %>
+      <%= f.file_field :cover_image %>
+      <%# <input type="file" name="book[cover_image]" id="book_cover_image"> %>
   </div>
 
   <div>
